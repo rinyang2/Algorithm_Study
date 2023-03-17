@@ -30,21 +30,21 @@ def next_pelindrome(n):
     left = int(str_n[:len(str_n)//2])
     if len(str_n)%2 != 0:
         middle = int(str_n[len(str_n)//2])
-    #길이가 홀수
+    #case where length is odd number
     try:
         if int(str(left)+str(middle)+str(left)[::-1]) > n:
             return int(str(left)+str(middle)+str(left)[::-1])
         else:
             if middle != 9:
                 return int(str(left)+str(middle+1)+str(left)[::-1])
-            #가운데가 9인 경우
+            #case where the center number is 9
             else:
                 if len(str(int(str(left)+str(middle))+1)) == len(str(left)+str(middle)):
                     temp = int(str(left)+str(middle))+1
                     return int(str(temp)+(str(temp)[:-1])[::-1])
                 else:
                     return n+2
-    #길이가 짝수
+    #case where length is even number
     except:
         if int(str(left)+str(left)[::-1]) > n:
            return int(str(left)+str(left)[::-1])
@@ -54,17 +54,20 @@ def next_pelindrome(n):
             else:
                 return int(str(left+1)[:-1]+str(left+1)[::-1])
 
-
 a,b = map(int, sys.stdin.readline().split())
 
 if not isPelindrome(a):
     a = next_pelindrome(a)
+
 while a <= b:
+    #since abcddcba is always divided by 11, and input is smaller than 10^8, pass
     if a> 10000000:
         break
+    #if a pelindrome number has even length, it is always divided by 11 so pass
     if int(len(str(a)))%2 == 0:
         if a == 11:
             print(11)
+        a = 10**len(str(a))
         a = next_pelindrome(a)
         continue
     if isPrime(a):
