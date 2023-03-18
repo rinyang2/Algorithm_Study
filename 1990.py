@@ -60,15 +60,13 @@ if not isPelindrome(a):
     a = next_pelindrome(a)
 
 while a <= b:
-    #since abcddcba is always divided by 11, and input is smaller than 10^8, pass
     if a> 10000000:
         break
-    #if a pelindrome number has even length, it is always divided by 11 so pass
+    #since abcddcba is always divided by 11, pass
     if int(len(str(a)))%2 == 0:
         if a == 11:
             print(11)
-        a = 10**len(str(a))
-        a = next_pelindrome(a)
+        a = 10**len(str(a))+1
         continue
     if isPrime(a):
         print(a)
