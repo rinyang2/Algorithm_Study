@@ -19,6 +19,7 @@ def goldbach(n):
                 break
     else:
         for i in arr:
+            if n-i-5 in arr:
                 return [2, 3, i, n-i-5]
 if N<8:
     print(-1)
