@@ -35,7 +35,7 @@ def isosceles(n,m):
             cnt += 1
     return cnt
 
+
 while(True):
     N,M = map(int, input().split())
     print(isosceles(N,M))
-
