@@ -39,3 +39,16 @@ def gcd(a,b):
 def t_Area(dot1, dot2, dot3):
     x,y = 0,1
     return abs(((dot2[x] - dot1[x])*(dot3[y]-dot1[y]) - (dot3[x]-dot1[x]) * (dot2[y] - dot1[y]))/2)
+
+'''
+n = int(input())
+#이분탐색을 통한 n번째 제곱ㄴㄴ수 찾기
+l,r = 0, 2000000000
+while l < r-1:
+    mid = (l+r) // 2
+    if below_n(mid)<n:
+        l = mid
+    else:
+        r = mid
+print(r)
+'''
